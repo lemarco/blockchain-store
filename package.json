@@ -1,0 +1,26 @@
+{
+  "name": "blockchain-store",
+  "module": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "./frontend",
+    "./backend"
+  ],
+  "scripts": {
+    "front:dev": "cd ./frontend && bun run dev",
+    "backend:dev": "cd ./backend && bun run dev",
+    "dev": "concurrently 'bun run front:dev' 'bun run backend:dev'",
+    "front:lint:fix": "bunx @biomejs/biome check --apply ./frontend",
+    "backend:lint:fix": "bunx @biomejs/biome check --apply ./backend",
+    "lint:fix": "bun run front:lint:fix && bun run backend:lint:fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@types/bun": "latest",
+    "concurrently": "^8.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {}
+}
