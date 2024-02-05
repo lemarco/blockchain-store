@@ -7,9 +7,15 @@
     "./backend"
   ],
   "scripts": {
+    "i": "bun i && cd ./blockchain && npm i",
+    "front:clean": "rm -rf ./frontend/node_modules && rm -rf ./frontend/dist",
+    "backend:clean": "rm -rf ./backend/node_modules && rm -rf ./backend/dist",
+    "blockchain:clean": "rm -rf ./blockchain/artifacts && rm -rf ./blockchain/node_modules && rm -rf ./blockchain/cache && rm -rf ./blockchain/typechain-types",
+    "clean": "bun run front:clean && bun run backend:clean && bun run blockchain:clean",
     "front:dev": "cd ./frontend && bun run dev",
     "backend:dev": "cd ./backend && bun run dev",
     "dev": "concurrently 'bun run front:dev' 'bun run backend:dev'",
+    "blockchain:node": "cd blockchain && npx run node",
     "front:lint:fix": "bunx @biomejs/biome check --apply ./frontend",
     "backend:lint:fix": "bunx @biomejs/biome check --apply ./backend",
     "lint:fix": "bun run front:lint:fix && bun run backend:lint:fix"
