@@ -14,8 +14,8 @@
     "clean": "bun run front:clean && bun run backend:clean && bun run blockchain:clean",
     "front:dev": "cd ./frontend && bun run dev",
     "backend:dev": "cd ./backend && bun run dev",
-    "dev": "concurrently 'bun run front:dev' 'bun run backend:dev'",
-    "blockchain:node": "cd blockchain && npx run node",
+    "dev": "concurrently 'bun run front:dev' 'bun run backend:dev' 'bun run blockchain:node'",
+    "blockchain:node": "cd blockchain && npm run node",
     "front:lint:fix": "bunx @biomejs/biome check --apply ./frontend",
     "backend:lint:fix": "bunx @biomejs/biome check --apply ./backend",
     "lint:fix": "bun run front:lint:fix && bun run backend:lint:fix"
